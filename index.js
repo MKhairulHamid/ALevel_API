@@ -17,9 +17,7 @@ app.get('/', (req,res) =>{
     res.status(202).send('<h1> Welcome to ALevel.id API ! </h1>')
 })
 
-const {
-    studentRouter
-} = require('./routers')
+const { studentRouter } = require('./routers')
 
 app.use('/student', studentRouter)
 

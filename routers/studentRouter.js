@@ -1,4 +1,5 @@
 const express = require('express')
+const { auth } = require('../helpers/auth')
 const { studentController } = require('../controllers')
 
 const router = express.Router()
