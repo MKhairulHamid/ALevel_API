@@ -1,17 +1,20 @@
 const jwt = require ('jsonwebtoken');
 
-module.export = {
+
+module.exports = {
     auth : (req, res, next) => {
         if(req.method !=='OPTIONS'){
-            jwt.verify(req.token, "botolminum", (error, decoded) =>{
+            jwt.verify(req.token, 'botolminum', (error, decoded) =>{
                 if (error) {
-                    return res.status(401).send({ message: "User not authorized.", error: "User not authorized."})
+                    return res.status(401).json({
+                        message: "User not authorized.", error: "User not authorized."
+                    })
                 }
                 req.user = decoded;
                 next();
             })
         } else {
-            next();
+            next()
         }
     }
 }

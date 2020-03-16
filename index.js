@@ -17,8 +17,9 @@ app.get('/', (req,res) =>{
     res.status(202).send('<h1> Welcome to ALevel.id API ! </h1>')
 })
 
-const { studentRouter } = require('./routers')
+const { userRouter, courseRouter } = require('./routers')
 
-app.use('/student', studentRouter)
+app.use('/users', userRouter)
+app.use('/courses', courseRouter)
 
 app.listen(PORT, () => console.log(`API berhasil aktif di PORT ${PORT}`))
